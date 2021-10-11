@@ -1,0 +1,23 @@
+version: "3"
+services:
+  task-management-service:
+    image: taskmanagement:latest
+    ports:
+      - "14000:8088"
+    networks:
+      - task-management-nwk
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:5
+    networks:
+      - task-management-nwk
+    environment:
+      - MYSQL_ROOT_PASSWORD=Welcome@07
+      - MYSQL_DATABASE=task_management
+    ports:
+      - "3306:3306"
+
+networks:
+  task-management-nwk:
