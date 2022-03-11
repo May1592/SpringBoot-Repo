@@ -18,7 +18,7 @@ public class TaskController {
     private TaskService taskService;
 
 
-    @RequestMapping(value = "/addNewTask",method = RequestMethod.POST)
+    @RequestMapping(value = "/task",method = RequestMethod.POST)
     public String addNewTask(@ModelAttribute Taskform taskform, BindingResult bindingResult )
     {
         if (bindingResult.hasErrors())
@@ -29,7 +29,7 @@ public class TaskController {
         return "welcome";
     }
 
-    @GetMapping("/tasks")
+    @GetMapping("/task")
     public String getAllTasks(Model model)
     {
         model.addAttribute("tasks",taskService.getAllTasks());
